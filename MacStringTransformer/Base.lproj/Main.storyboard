@@ -697,7 +697,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <action selector="Input:" target="XfG-lQ-9wD" id="OIf-RN-wzV"/>
+                                    <action selector="textChanged:" target="XfG-lQ-9wD" id="dpO-5y-Znj"/>
                                 </connections>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7qe-g5-ss7">

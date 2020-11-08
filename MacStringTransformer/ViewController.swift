@@ -14,6 +14,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        input.delegate = self
         typeChanged(self)
 
         // Do any additional setup after loading the view.
@@ -26,6 +27,9 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
 
     @IBAction func CopyToClipboard(_ sender: Any) {
+        typeChanged(self)
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(output.stringValue, forType: .string)
     }
     
     @IBAction func typeChanged(_ sender: Any) {
@@ -54,7 +58,14 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
     
     func strike(_ input: String) -> String{
-        return "Strike: " + input
+        var output = ""
+        
+        for letter in input{
+            output.append(letter)
+            output.append("\u{0335}")
+        }
+        
+        return output
     }
     
     func zalgo(_ input: String) -> String{
